@@ -1,38 +1,37 @@
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { login } from '../redux/features/user';
-import { useAppDispatch } from '../redux/hooks/hooks';
+import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { login } from '../redux/features/user'
+import { useAppDispatch } from '../redux/hooks/hooks'
 
-import Logo from '../assets/logoWallet.svg';
+import Logo from '../assets/logoWallet.svg'
 
-function Login() {
-    const dispatch = useAppDispatch();
-    const navigate = useNavigate();
+function Login (): JSX.Element {
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
 
-    const [email, setEmail] = useState('')
-    const [senha, setSenha] = useState('')
-    const [disabled, setDisabled] = useState(true)
+  const [email, setEmail] = useState('')
+  const [senha, setSenha] = useState('')
+  const [disabled, setDisabled] = useState(true)
 
-    const verifyEmail = (email: string) => /\S+@\S+\.\S+/.test(email);
+  const verifyEmail = (email: string): boolean => /\S+@\S+\.\S+/.test(email)
 
-    useEffect(() => {
-        const magicNumber = 5;
-        if (verifyEmail(email) && senha.length > magicNumber) {
-            setDisabled(false);
-        } else {
-            setDisabled(true);
-        }
+  useEffect(() => {
+    const magicNumber = 5
+    if (verifyEmail(email) && senha.length > magicNumber) {
+      setDisabled(false)
+    } else {
+      setDisabled(true)
+    }
+  }, [senha, email])
 
-    }, [senha, email])
+  const handleClick = (): void => {
+    dispatch(login({ email, password: senha }))
+    setEmail('')
+    setSenha('')
+    navigate('/carteira')
+  }
 
-    const handleClick = () => {
-        dispatch(login({ email, password: senha }))
-        setEmail('');
-        setSenha('');
-        navigate('/carteira')
-    };
-
-    return (
+  return (
         <div className="w-full h-[100vh] flex items-center justify-center ">
             <div
                 className="
@@ -103,16 +102,14 @@ function Login() {
                         rounded
                         w-72
                         p-2
-                        ` }
+                        `}
                     >
                         Entrar
                     </button>
                 </form>
             </div>
         </div>
-    );
+  )
 }
 
-
-
-export default Login;
+export default Login
