@@ -10,12 +10,12 @@ interface Profile {
 }
 
 const initialState: Profile = {
-  user: {
+     user: {
     email: '',
     password: ''
   }
 }
-
+// NOTE: => Cria os Reducers e as Actions!
 export const userSlice = createSlice({
   name: 'user',
   initialState,
