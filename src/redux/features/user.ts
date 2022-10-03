@@ -10,7 +10,7 @@ interface Profile {
 }
 
 const initialState: Profile = {
-     user: {
+  user: {
     email: '',
     password: ''
   }

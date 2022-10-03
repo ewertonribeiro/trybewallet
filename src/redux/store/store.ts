@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import user from '../features/user'
+import wallet from '../features/wallet'
 
 const store = configureStore({
   reducer: {
-    user
+    user,
+    wallet
   }
 })
 
