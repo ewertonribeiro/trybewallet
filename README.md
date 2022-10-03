@@ -3,10 +3,10 @@
 <img src="./public/Captura de tela de 2022-10-03 17-34-55.png" />
 <img src="./public/Captura de tela de 2022-10-03 17-35-35.png" />
 
-<div style="display:flex;gap:1rem">
+<div style="display:flex;gap:1rem;">
 
 <img src="./public/Captura de tela de 2022-10-03 17-34-11.png" width="500" height="300"/> 
-<img src="./public/Captura de tela de 2022-10-03 17-33-11.png" width="500" height="300"/> 
+<img src="./public/Captura de tela de 2022-10-03 17-33-11.png" width="300" height="300"/> 
 </div>
 
 
